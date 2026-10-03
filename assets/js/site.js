@@ -26,6 +26,24 @@
     loops.forEach(function (v) { watch.observe(v); });
   }
 
+  // YouTube videos (data-youtube): the poster and a play button until it is pressed, then the player in its place
+  // (youtube-nocookie.com, playing at once). Nothing is asked of YouTube before that click.
+  document.querySelectorAll("[data-youtube]").forEach(function (box) {
+    var link = box.querySelector(".yt-play");
+    if (!link) { return; }
+    link.addEventListener("click", function (ev) {
+      ev.preventDefault();
+      var player = document.createElement("iframe");
+      player.src = "https://www.youtube-nocookie.com/embed/" + box.getAttribute("data-youtube") + "?autoplay=1&rel=0&playsinline=1";
+      player.title = box.getAttribute("data-title") || "Video";
+      player.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+      player.allowFullscreen = true;
+      player.referrerPolicy = "strict-origin-when-cross-origin";
+      box.replaceChildren(player);
+      player.focus();
+    });
+  });
+
   // The screenshot viewer: the gallery's links open a dialog with arrows, swipes and Esc instead of leaving the page.
   var gallery = document.querySelector("[data-gallery]");
   if (!gallery || typeof HTMLDialogElement !== "function") { return; }

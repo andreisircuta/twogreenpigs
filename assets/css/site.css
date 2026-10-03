@@ -186,7 +186,25 @@ p { margin: 0 0 1em; }
 .game-hero .lead { color: #f3e6cc; text-shadow: 0 1px 8px rgba(0, 0, 0, 0.7); }
 
 .video-frame { border-radius: var(--radius); overflow: hidden; background: #000; border: 1px solid var(--line); box-shadow: 0 18px 50px rgba(0, 0, 0, 0.45); }
-.video-frame video { width: 100%; aspect-ratio: 16 / 9; background: #000; }
+.video-frame video, .video-frame img, .video-frame iframe { width: 100%; aspect-ratio: 16 / 9; background: #000; }
+.caption a { color: var(--sand); }
+
+/* A YouTube video: its poster and a play button until it is pressed (site.js puts the player there then), so the page
+   asks nothing of YouTube before that. Without the script the link opens the video on YouTube. */
+.yt-play { position: relative; display: block; cursor: pointer; }
+.yt-play img { object-fit: cover; transition: filter 0.2s ease; }
+.yt-play:hover img { filter: brightness(1.08); }
+.yt-button {
+  position: absolute; left: 50%; top: 50%; width: 92px; height: 92px; margin: -46px 0 0 -46px; border-radius: 50%;
+  background: linear-gradient(180deg, var(--gold, #ffd35a) 0%, var(--gold-deep, #e8973a) 100%);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.55), 0 0 0 6px rgba(255, 255, 255, 0.18);
+  transition: transform 0.15s ease;
+}
+.yt-button::after { content: ""; position: absolute; left: 36px; top: 28px; border-style: solid; border-width: 18px 0 18px 30px; border-color: transparent transparent transparent #2a1a08; }
+.yt-play:hover .yt-button { transform: scale(1.07); }
+.yt-play:focus-visible .yt-button { outline: 3px solid #fff; outline-offset: 4px; }
+iframe { border: 0; display: block; }
+@media (prefers-reduced-motion: reduce) { .yt-play img, .yt-button { transition: none; } .yt-play:hover .yt-button { transform: none; } }
 .caption { font-size: 0.88rem; color: var(--text-soft); margin-top: 10px; }
 
 .rows { display: grid; gap: 56px; }
@@ -228,7 +246,10 @@ p { margin: 0 0 1em; }
 .phone { display: grid; gap: 32px; align-items: center; }
 @media (min-width: 860px) { .phone { grid-template-columns: 1.2fr 0.8fr; gap: 56px; } }
 .phone-frame { width: min(320px, 78vw); margin: 0 auto; border-radius: 34px; padding: 10px; background: #0d0905; border: 2px solid rgba(255, 255, 255, 0.16); box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55); }
-.phone-frame video { width: 100%; aspect-ratio: 9 / 16; border-radius: 26px; background: #000; }
+.phone-frame video, .phone-frame img, .phone-frame iframe { width: 100%; aspect-ratio: 9 / 16; border-radius: 26px; background: #000; }
+.phone-frame .yt-play { border-radius: 26px; overflow: hidden; }
+.phone-frame .yt-button { width: 76px; height: 76px; margin: -38px 0 0 -38px; }
+.phone-frame .yt-button::after { left: 30px; top: 23px; border-width: 15px 0 15px 25px; }
 
 .facts { display: grid; grid-template-columns: max-content 1fr; gap: 10px 24px; margin: 0; }
 .facts dt { font-weight: 700; color: var(--sand); }

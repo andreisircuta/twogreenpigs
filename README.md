@@ -2,12 +2,12 @@
 
 The studio's site: the studio page (`index.html`) and one page per game (`desert-clash/`). Plain HTML and CSS, no
 build step, no cookies, no trackers and no requests to other sites (fonts are the visitor's own), so it needs no
-cookie banner. It is a separate project from the Unity game: its own git repository, ignored by the game's.
+cookie banner. The trailer and the vertical clip play from YouTube, which loads only when the visitor presses play. It is a separate project from the Unity game: its own git repository, ignored by the game's.
 
 ```
 index.html                 the studio: hero, games, about, contact
 desert-clash/index.html    Desert Clash: trailer, how it plays, factions, features, screenshots, phone, fact sheet
-desert-clash/media/        the game's images and videos, sized for the web
+desert-clash/media/        the game's images and the factions' silent loops, sized for the web
 assets/css/site.css        all the styles (the studio is bright, a game page dark)
 assets/js/site.js          the screenshot viewer and the faction loops (the pages work without it)
 assets/img/                the studio's logo, mascots and icons
@@ -43,17 +43,22 @@ some browsers.)
 A domain of your own (for example `twogreenpigs.com`) can come later: buy it, add it under Settings → Pages → Custom
 domain (GitHub writes a `CNAME` file) and point the domain's DNS at GitHub as their guide says.
 
-## When the address is known
+## The address
 
-- The social previews (`og:image` in the two pages) work best with full addresses: replace `assets/img/social-preview.jpg`
-  and `media/key-art.jpg` with `https://<address>/...`.
+The site is at https://andreisircuta.github.io/twogreenpigs/ (a project site, under `/twogreenpigs/`). If it moves (its
+own domain, another repository), change these:
+
+- `<base href="/twogreenpigs/">` in `404.html` (GitHub Pages shows that page for a missing address at any depth);
+- `og:url` and `og:image` in the two pages (social previews need full addresses).
 
 ## Changing things
 
 - Texts: straight in the HTML files.
-- The videos come from the game's recordings, encoded smaller than the store versions (GitHub refuses files over
-  100 MB): in the Unity project, `Game.Marketing.Trailer.Encode(music, 0f, @"<full path>.mp4", 0.08f)`,
-  `Trailer.EncodeVertical(...)` the same way, and `Trailer.Loop("horde", @"<full path>.mp4")` for a faction loop.
+- The trailer and the vertical clip: their YouTube IDs are in `data-youtube` and in the links next to them
+  (trailer `20LuhETwz0U`, clip `nv_gmuJUlQA`). A new upload only changes those.
+- The factions' loops come from the game's recordings: in the Unity project,
+  `Game.Marketing.Trailer.Loop("horde", @"<full path>\loop-horde.mp4")` (960x540, about 3.5 MB). Keep their bit rate:
+  the first web copies, at a tenth of it, came out blocky.
 - Pictures: the screenshots are 1920×1080 JPEGs plus 800×450 thumbnails (`-thumb`).
 
 ## Still to add
