@@ -286,3 +286,21 @@ iframe { border: 0; display: block; }
 @media (max-width: 720px) {
   .game-hero-bg::after { background: linear-gradient(180deg, rgba(23, 17, 11, 0.6) 0%, rgba(23, 17, 11, 0.45) 35%, rgba(23, 17, 11, 0.75) 70%, var(--night) 100%); }
 }
+
+/* ---------- the privacy policy (and any other long text page) ---------- */
+
+.legal { padding: 40px 0 64px; }
+.legal .wrap { max-width: 860px; }
+.legal h1 { color: var(--grass-deep); font-size: clamp(2rem, 5vw, 3rem); }
+.legal h2 { color: var(--grass-deep); font-size: 1.6rem; margin-top: 1.8em; }
+.legal h3 { font-size: 1.15rem; margin-top: 1.4em; }
+.legal ul { padding-left: 1.3em; margin: 0 0 1em; }
+.legal li { margin-bottom: 0.35em; }
+.legal a { color: var(--grass-deep); font-weight: 600; }
+.legal .meta { color: var(--ink-soft); }
+.legal .summary { background: var(--cream); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px 24px; margin: 24px 0; }
+.legal .summary ul { margin: 0; }
+.table-scroll { overflow-x: auto; margin: 0 0 1em; }
+.legal table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+.legal th, .legal td { text-align: left; vertical-align: top; padding: 10px 12px; border-bottom: 1px solid var(--line); }
+.legal th { background: var(--cream); }
