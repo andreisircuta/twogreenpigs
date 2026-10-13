@@ -304,3 +304,24 @@ iframe { border: 0; display: block; }
 .legal table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
 .legal th, .legal td { text-align: left; vertical-align: top; padding: 10px 12px; border-bottom: 1px solid var(--line); }
 .legal th { background: var(--cream); }
+
+/* ---------- the closed beta page (steps to join) ---------- */
+
+.game-hero-short { min-height: min(70vh, 620px); }
+.playtest-title { color: #fff; text-shadow: 0 2px 14px rgba(0, 0, 0, 0.6); max-width: 18ch; }
+.steps { list-style: none; counter-reset: step; padding: 0; margin: 0; display: grid; gap: 18px; }
+@media (min-width: 900px) { .steps { grid-template-columns: repeat(3, 1fr); gap: 22px; } }
+.steps li {
+  counter-increment: step; position: relative; display: flex; flex-direction: column;
+  background: var(--stone); border: 1px solid var(--line); border-radius: var(--radius); padding: 64px 24px 24px;
+}
+.steps li::before {
+  content: counter(step); position: absolute; left: 24px; top: 20px; width: 34px; height: 34px; border-radius: 50%;
+  display: grid; place-items: center; font: 700 1.1rem var(--display); color: #2a1a08;
+  background: linear-gradient(180deg, var(--gold) 0%, var(--gold-deep) 100%);
+}
+.steps p { flex: 1; }
+.steps strong { color: var(--text); }
+.steps .actions { margin-top: 8px; }
+.steps .btn { overflow-wrap: anywhere; }
+.game .features a, .facts a { color: var(--sand); }
