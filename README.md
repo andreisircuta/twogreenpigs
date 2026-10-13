@@ -55,7 +55,7 @@ own domain, another repository), change these:
 
 - Texts: straight in the HTML files.
 - The trailer and the vertical clip: their YouTube IDs are in `data-youtube` and in the links next to them
-  (trailer `20LuhETwz0U`, clip `nv_gmuJUlQA`). A new upload only changes those.
+  (trailer `YF86s-rRHUo`, clip `3Na1lm7YS8w`). A new upload only changes those.
 - The factions' loops come from the game's recordings: in the Unity project,
   `Game.Marketing.Trailer.Loop("horde", @"<full path>\loop-horde.mp4")` (960x540, about 3.5 MB). Keep their bit rate:
   the first web copies, at a tenth of it, came out blocky.

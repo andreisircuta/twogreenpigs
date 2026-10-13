@@ -325,3 +325,9 @@ iframe { border: 0; display: block; }
 .steps .actions { margin-top: 8px; }
 .steps .btn { overflow-wrap: anywhere; }
 .game .features a, .facts a { color: var(--sand); }
+
+/* the closed beta link in the top bar stands out on every page */
+.nav .nav-cta { background: var(--grass); color: #fff; text-shadow: none; }
+.nav .nav-cta:hover { background: var(--grass-deep); }
+.game .nav .nav-cta { background: linear-gradient(180deg, var(--gold) 0%, var(--gold-deep) 100%); color: #2a1a08; }
+.game .nav .nav-cta:hover { background: var(--gold); }
